@@ -1,5 +1,49 @@
-node_modules/
-dist/
+# ========================
+# GLOBAL
+# ========================
 .env
+.env.*
+*.log
+*.pid
 .DS_Store
-EOF
+Thumbs.db
+
+# ========================
+# NODE (backend + frontend)
+# ========================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+dist/
+build/
+
+# ========================
+# FRONTEND (Vue / Vite)
+# ========================
+frontend/dist/
+frontend/.vite/
+frontend/coverage/
+frontend/*.local
+
+# ========================
+# BACKEND (Node.js)
+# ========================
+backend/dist/
+backend/coverage/
+backend/*.local
+
+# ========================
+# DOCKER
+# ========================
+docker/postgres/data/
+postgres/data/
+
+# ========================
+# IDE
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
