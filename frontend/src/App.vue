@@ -1,7 +1,6 @@
-<script setup lang="ts">
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <HelloWorld />
+  <h1>Country Quiz</h1>
 </template>
+
+<script setup lang="ts">
+</script>
