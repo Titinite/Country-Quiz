@@ -27,7 +27,7 @@ services:
       - "${BACKEND_PORT:?Port backend non défini (.env)}:3000"
     volumes:
       - ./backend:/app
-      - ./backend/node_modules:/app/node_modules
+      - /app/node_modules
     depends_on:
       postgres:
         condition: service_healthy
@@ -42,7 +42,7 @@ services:
       - "${FRONTEND_PORT:?Port frontend non défini (.env)}:5173"
     volumes:
       - ./frontend:/app
-      - ./frontend/node_modules:/app/node_modules
+      - /app/node_modules
     depends_on:
       - backend
 
