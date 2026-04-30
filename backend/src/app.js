@@ -3,6 +3,7 @@ import authRoutes from './routes/auth.routes.js';
 import chapterRoutes from './routes/chapter.routes.js';
 import progressRoutes from './routes/progress.routes.js';
 import questionRoutes from './routes/question.routes.js';
+import adminRoutes from './routes/admin.routes.js';
 
 const app = express();
 
@@ -12,6 +13,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/chapters', chapterRoutes);
 app.use('/api/progress', progressRoutes);
 app.use('/api', questionRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.get('/', (req, res) => {
   res.json({ message: 'API is running 🚀' });
