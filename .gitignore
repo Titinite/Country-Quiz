@@ -7,6 +7,7 @@
 *.pid
 .DS_Store
 Thumbs.db
+*.pem
 
 # ========================
 # NODE (backend + frontend)

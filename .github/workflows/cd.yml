@@ -43,6 +43,17 @@ jobs:
     needs: build-and-push
 
     steps:
-      - name: Deploy (à configurer)
+      - name: Setup SSH
         run: |
-          echo "Déploiement à configurer selon le serveur cible"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.VM_SSH_KEY }}" > ~/.ssh/github-actions
+          chmod 600 ~/.ssh/github-actions
+          ssh-keyscan -H ${{ secrets.VM_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy sur la VM
+        run: |
+          ssh -i ~/.ssh/github-actions ${{ secrets.VM_USER }}@${{ secrets.VM_HOST }} "
+            cd ~/countryquiz &&
+            docker compose -f docker-compose.prod.yml pull &&
+            docker compose -f docker-compose.prod.yml up -d --remove-orphans
+          "
